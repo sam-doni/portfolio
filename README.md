@@ -550,10 +550,10 @@
     <div class="contact">
         <div><strong>Name</strong><br>Ibrahim Doni Samaila</div>
         <div><strong>Profession</strong><br>ICT Manager / ICT Trainer</div>
-        <div><strong>Email</strong><br>[Your Email Address]</div>
-        <div><strong>Phone</strong><br>[Your Phone Number]</div>
-        <div><strong>LinkedIn</strong><br>[Your LinkedIn Profile]</div>
-        <div><strong>Location</strong><br>Nigeria</div>
+        <div><strong>Email</strong><br>ibrahimdonisamaila@gmail.com</div>
+        <div><strong>Phone</strong><br>08100217165, 08172617777</div>
+        <div><strong>LinkedIn</strong><br>www.linkedin.com/in/samaila-ibrahim-043a1b111</div>
+        <div><strong>Location</strong><br> Kaduna,Nigeria</div>
     </div>
 </section>
 </main>
