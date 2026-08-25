@@ -1217,24 +1217,6 @@
                     — Ibrahim Doni Samaila
                 </strong>
 
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <p>
-            &copy; 2026 Ibrahim Doni Samaila.
-            ICT &amp; Technology Professional Portfolio.
-        </p>
-
-    </footer>
-
-</div>
-
+        
 </body>
 </html>
