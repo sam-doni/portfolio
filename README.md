@@ -1,1222 +1,568 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Ibrahim Doni Samaila | ICT Professional Portfolio</title>
-
-    <style>
-        :root {
-            --primary: #123b5d;
-            --secondary: #0f766e;
-            --light: #f4f7f9;
-            --dark: #1f2937;
-            --muted: #64748b;
-            --white: #ffffff;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.7;
-            color: var(--dark);
-            background: #e9eef2;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            background: var(--white);
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.10);
-        }
-
-        /* HERO */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 70px 55px;
-        }
-
-        header h1 {
-            font-size: 44px;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        header h2 {
-            font-size: 19px;
-            font-weight: normal;
-            margin-bottom: 25px;
-            opacity: 0.95;
-        }
-
-        .tagline {
-            max-width: 800px;
-            font-size: 18px;
-            border-left: 4px solid rgba(255,255,255,.8);
-            padding-left: 18px;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 22px;
-            background: white;
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* NAVIGATION */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: #0b2d45;
-            padding: 13px 20px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 9px;
-            font-size: 13px;
-        }
-
-        nav a:hover {
-            color: #7dd3fc;
-        }
-
-        /* MAIN */
-        main {
-            padding: 50px 55px;
-        }
-
-        section {
-            margin-bottom: 55px;
-            scroll-margin-top: 70px;
-        }
-
-        h3 {
-            color: var(--primary);
-            font-size: 27px;
-            margin-bottom: 20px;
-            padding-bottom: 9px;
-            border-bottom: 2px solid #dce5eb;
-        }
-
-        h4 {
-            color: var(--secondary);
-            font-size: 19px;
-            margin: 18px 0 8px;
-        }
-
-        p {
-            margin-bottom: 14px;
-        }
-
-        ul {
-            margin: 10px 0 15px 25px;
-        }
-
-        li {
-            margin-bottom: 6px;
-        }
-
-        /* CARDS */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--light);
-            border-left: 4px solid var(--secondary);
-            padding: 22px;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,.08);
-        }
-
-        .card h4 {
-            margin-top: 0;
-        }
-
-        /* SKILLS */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill {
-            background: #e7f1f1;
-            color: #155e59;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        /* TIMELINE */
-        .timeline {
-            border-left: 3px solid var(--secondary);
-            padding-left: 27px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            width: 13px;
-            height: 13px;
-            background: var(--secondary);
-            border-radius: 50%;
-            left: -35px;
-            top: 8px;
-        }
-
-        .year {
-            color: var(--muted);
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        /* QUOTE */
-        .quote {
-            background: var(--light);
-            border-left: 5px solid var(--secondary);
-            padding: 27px;
-            font-size: 20px;
-            font-style: italic;
-        }
-
-        /* CONTACT */
-        .contact {
-            background: #f1f6f8;
-            padding: 28px;
-            border-radius: 8px;
-        }
-
-        .contact strong {
-            font-size: 20px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #0b2d45;
-            color: white;
-            text-align: center;
-            padding: 28px;
-            font-size: 14px;
-        }
-
-        /* MOBILE */
-        @media (max-width: 760px) {
-
-            .container {
-                margin: 0;
-            }
-
-            header {
-                padding: 45px 25px;
-            }
-
-            header h1 {
-                font-size: 32px;
-            }
-
-            header h2 {
-                font-size: 16px;
-            }
-
-            main {
-                padding: 35px 25px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav {
-                display: none;
-            }
-        }
-
-        /* PRINT */
-        @media print {
-
-            body {
-                background: white;
-            }
-
-            .container {
-                margin: 0;
-                box-shadow: none;
-            }
-
-            nav,
-            .btn {
-                display: none;
-            }
-
-            section {
-                break-inside: avoid;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ibrahim Doni Samaila | ICT & Technology Professional Portfolio</title>
+<style>
+    :root {
+        --primary: #123b5d;
+        --secondary: #1f6f8b;
+        --accent: #e7a93b;
+        --light: #f4f7f9;
+        --dark: #1d2730;
+        --muted: #667784;
+        --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--dark);
+        background: #eef2f5;
+        line-height: 1.65;
+    }
+    header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 70px 20px 55px;
+        text-align: center;
+    }
+    .hero {
+        max-width: 1050px;
+        margin: auto;
+    }
+    .hero h1 {
+        margin: 0 0 8px;
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        letter-spacing: 1px;
+    }
+    .hero h2 {
+        margin: 0 auto 25px;
+        font-size: clamp(1rem, 2.5vw, 1.35rem);
+        font-weight: 400;
+        max-width: 850px;
+    }
+    .tagline {
+        display: inline-block;
+        background: rgba(255,255,255,.12);
+        border: 1px solid rgba(255,255,255,.25);
+        padding: 10px 18px;
+        border-radius: 30px;
+        font-style: italic;
+    }
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(18,59,93,.97);
+        box-shadow: 0 2px 10px rgba(0,0,0,.12);
+    }
+    nav .nav-inner {
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        padding: 8px 12px;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        white-space: nowrap;
+        padding: 9px 12px;
+        border-radius: 6px;
+        font-size: .9rem;
+    }
+    nav a:hover { background: var(--secondary); }
+    main {
+        max-width: 1100px;
+        margin: 30px auto;
+        padding: 0 18px;
+    }
+    section {
+        background: white;
+        margin-bottom: 24px;
+        padding: 35px;
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(20,40,60,.07);
+    }
+    section h2 {
+        color: var(--primary);
+        margin-top: 0;
+        font-size: 1.8rem;
+        border-bottom: 3px solid var(--accent);
+        padding-bottom: 8px;
+    }
+    h3 { color: var(--secondary); margin-bottom: 8px; }
+    .lead { font-size: 1.08rem; color: #394b58; }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 16px;
+    }
+    .card {
+        background: var(--light);
+        padding: 20px;
+        border-radius: 10px;
+        border-left: 4px solid var(--secondary);
+    }
+    .card h3 { margin-top: 0; }
+    ul { padding-left: 22px; }
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+    }
+    .skill {
+        background: #e9f2f6;
+        color: var(--primary);
+        border: 1px solid #c9dfe8;
+        padding: 7px 12px;
+        border-radius: 20px;
+        font-size: .92rem;
+    }
+    .timeline {
+        border-left: 3px solid var(--secondary);
+        padding-left: 22px;
+    }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 25px;
+    }
+    .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -31px;
+        top: 6px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 3px solid white;
+        box-shadow: 0 0 0 2px var(--secondary);
+    }
+    .achievement {
+        padding: 18px;
+        border-radius: 9px;
+        background: #faf7ef;
+        border-left: 4px solid var(--accent);
+    }
+    blockquote {
+        margin: 20px 0;
+        padding: 22px 25px;
+        background: var(--light);
+        border-left: 5px solid var(--accent);
+        font-size: 1.25rem;
+        font-style: italic;
+        color: var(--primary);
+    }
+    .contact {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+    }
+    .contact div {
+        padding: 18px;
+        background: var(--light);
+        border-radius: 8px;
+    }
+    footer {
+        text-align: center;
+        background: var(--primary);
+        color: white;
+        padding: 30px 18px;
+        margin-top: 30px;
+    }
+    footer strong { color: var(--accent); }
+    @media (max-width: 650px) {
+        section { padding: 24px 20px; }
+        header { padding-top: 50px; }
+    }
+    @media print {
+        nav { display: none; }
+        body { background: white; }
+        section { box-shadow: none; page-break-inside: avoid; }
+    }
+</style>
 </head>
-
 <body>
 
-<div class="container">
-
-    <!-- HERO SECTION -->
-    <header>
-
+<header id="home">
+    <div class="hero">
         <h1>IBRAHIM DONI SAMAILA</h1>
+        <h2>ICT Manager | Network &amp; Systems Technician | CBT Centre Manager | ICT Trainer | Digital Skills Advocate</h2>
+        <div class="tagline">Using ICT to solve real-life problems and empower people.</div>
+    </div>
+</header>
 
-        <h2>
-            ICT Manager |
-            Network &amp; Systems Technician |
-            CBT Centre Manager |
-            ICT Trainer
-        </h2>
-
-        <p class="tagline">
-            Using technology to solve real-life problems,
-            improve productivity, create opportunities and
-            empower individuals and communities.
-        </p>
-
-        <a href="#contact" class="btn">
-            Contact Me
-        </a>
-
-    </header>
-
-
-    <!-- NAVIGATION -->
-    <nav>
-
+<nav>
+    <div class="nav-inner">
         <a href="#about">About</a>
+        <a href="#competencies">Competencies</a>
         <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
+        <a href="#cbt">CBT</a>
         <a href="#projects">Projects</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#training">Training</a>
+        <a href="#impact">Impact</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
         <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-    </nav>
+<main>
+<section id="about">
+    <h2>Professional Profile</h2>
+    <p class="lead">
+        I am an ICT professional with over <strong>12 years of practical experience</strong> in information and communication technology,
+        ICT infrastructure management, computer-based testing, networking, technical support, digital skills training,
+        and technology-driven community development.
+    </p>
+    <p>
+        My professional experience covers the design, installation and maintenance of computer networks, management of ICT infrastructure,
+        operation of Computer-Based Testing (CBT) centres, server and systems support, digital literacy training, and technical support for organisations and communities.
+    </p>
+    <p>
+        I strongly believe that technology is most valuable when it is used to solve real-life problems, improve productivity,
+        create opportunities and empower people.
+    </p>
+</section>
 
+<section>
+    <h2>About Me</h2>
+    <p>
+        My professional journey has been driven by a passion for technology and its ability to create positive social and economic impact.
+        I have developed practical experience managing ICT environments, supporting users, setting up computer laboratories and CBT centres,
+        deploying networks, maintaining ICT equipment, providing technical support and training people with different levels of digital knowledge.
+    </p>
+    <p>My approach combines:</p>
+    <div class="skills">
+        <span class="skill">Technical Problem-Solving</span>
+        <span class="skill">ICT Infrastructure Management</span>
+        <span class="skill">Networking</span>
+        <span class="skill">User Support</span>
+        <span class="skill">Training &amp; Mentorship</span>
+        <span class="skill">Project Coordination</span>
+        <span class="skill">Community Engagement</span>
+        <span class="skill">Innovation</span>
+    </div>
+</section>
 
-    <main>
-
-        <!-- PROFILE -->
-        <section id="profile">
-
-            <h3>Professional Profile</h3>
-
-            <p>
-                I am an ICT professional with over
-                <strong>12 years of practical experience</strong>
-                in information and communication technology,
-                ICT infrastructure management, computer-based
-                testing, networking, technical support, digital
-                skills training and technology-driven community
-                development.
-            </p>
-
-            <p>
-                My experience covers the design, installation and
-                maintenance of computer networks, management of
-                ICT infrastructure, operation of Computer-Based
-                Testing (CBT) centres, server and systems support,
-                troubleshooting, digital literacy training and
-                technical support for organisations and communities.
-            </p>
-
-            <p>
-                I strongly believe that technology is most valuable
-                when it is used to solve real-life problems, improve
-                productivity, create opportunities and empower people.
-            </p>
-
-        </section>
-
-
-        <!-- ABOUT -->
-        <section id="about">
-
-            <h3>About Me</h3>
-
-            <p>
-                My professional journey has been driven by a passion
-                for technology and its ability to create positive
-                social and economic impact.
-            </p>
-
-            <p>
-                I have developed practical experience managing ICT
-                environments, supporting users, setting up computer
-                laboratories and CBT centres, deploying networks,
-                maintaining ICT equipment, providing technical support
-                and training people with different levels of digital
-                knowledge.
-            </p>
-
-            <p>My approach combines:</p>
-
+<section id="competencies">
+    <h2>Core Competencies</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>ICT Management</h3>
             <ul>
-                <li>Technical problem-solving</li>
                 <li>ICT infrastructure management</li>
-                <li>Networking</li>
-                <li>User support</li>
-                <li>Training and mentorship</li>
-                <li>Project coordination</li>
-                <li>Community engagement</li>
-                <li>Innovation and continuous learning</li>
+                <li>IT operations and technical support</li>
+                <li>Hardware and software troubleshooting</li>
+                <li>ICT asset management</li>
+                <li>Systems administration</li>
+                <li>ICT project coordination</li>
             </ul>
-
-        </section>
-
-
-        <!-- SKILLS -->
-        <section id="skills">
-
-            <h3>Core Competencies</h3>
-
-            <div class="grid">
-
-                <div class="card">
-
-                    <h4>ICT Management</h4>
-
-                    <ul>
-                        <li>ICT infrastructure management</li>
-                        <li>IT operations</li>
-                        <li>Technical support</li>
-                        <li>ICT asset management</li>
-                        <li>Hardware and software troubleshooting</li>
-                        <li>Systems administration</li>
-                        <li>ICT project coordination</li>
-                    </ul>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>Networking</h4>
-
-                    <ul>
-                        <li>LAN/WAN installation</li>
-                        <li>Network configuration</li>
-                        <li>Structured cabling</li>
-                        <li>IP addressing</li>
-                        <li>Router and switch configuration</li>
-                        <li>Wireless networking</li>
-                        <li>Network troubleshooting</li>
-                        <li>CCTV networking</li>
-                    </ul>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>Computer-Based Testing</h4>
-
-                    <ul>
-                        <li>CBT centre setup</li>
-                        <li>CBT network configuration</li>
-                        <li>Server configuration</li>
-                        <li>Client computer deployment</li>
-                        <li>Examination support</li>
-                        <li>CBT troubleshooting</li>
-                    </ul>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>Digital Skills Training</h4>
-
-                    <ul>
-                        <li>Digital literacy</li>
-                        <li>Computer appreciation</li>
-                        <li>Internet skills</li>
-                        <li>Microsoft Office</li>
-                        <li>Digital safety</li>
-                        <li>ICT training for women and young people</li>
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- EXPERIENCE -->
-        <section id="experience">
-
-            <h3>Professional Experience</h3>
-
-            <div class="timeline">
-
-                <div class="timeline-item">
-
-                    <h4>
-                        Fantsuam Foundation —
-                        ICT Manager / ICT Professional
-                    </h4>
-
-                    <div class="year">
-                        12+ Years
-                    </div>
-
-                    <p>
-                        Responsible for supporting and managing the
-                        organisation's ICT infrastructure and
-                        technology-related activities.
-                    </p>
-
-                    <ul>
-                        <li>Managing ICT infrastructure and equipment</li>
-                        <li>Maintaining computer systems and networks</li>
-                        <li>Providing technical support to staff</li>
-                        <li>Managing network connectivity</li>
-                        <li>Supporting servers and ICT systems</li>
-                        <li>Managing CBT infrastructure</li>
-                        <li>Providing ICT training</li>
-                        <li>Coordinating technical projects</li>
-                    </ul>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <h4>
-                        CBT ZittNet Academy —
-                        CBT Academy Manager
-                    </h4>
-
-                    <div class="year">
-                        2022 – Present
-                    </div>
-
-                    <p>
-                        Managing technical and operational aspects
-                        of a Computer-Based Testing environment,
-                        including systems, networking, hardware,
-                        candidate support and examination readiness.
-                    </p>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <h4>
-                        Fantsuam Foundation —
-                        CBT Technical Manager
-                    </h4>
-
-                    <div class="year">
-                        2014 – 2017
-                    </div>
-
-                    <p>
-                        Supported the technical setup, maintenance
-                        and operation of CBT facilities, including
-                        computer deployment, networking and
-                        troubleshooting.
-                    </p>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <h4>
-                        Rumbu Industry Limited, Kano —
-                        Technical/Operator Assistant
-                    </h4>
-
-                    <div class="year">
-                        2020 – 2021
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <h4>
-                        Society for Family Health —
-                        Community Facilitator
-                    </h4>
-
-                    <div class="year">
-                        2015 – 2016
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- CBT -->
-        <section>
-
-            <h3>Computer-Based Testing Experience</h3>
-
-            <p>
-                One of my major areas of professional experience
-                is the management and technical operation of
-                Computer-Based Testing centres.
-            </p>
-
-            <div class="skills">
-
-                <span class="skill">CBT Centre Setup</span>
-                <span class="skill">Network Configuration</span>
-                <span class="skill">Server/Client Configuration</span>
-                <span class="skill">Examination Support</span>
-                <span class="skill">Hardware Maintenance</span>
-                <span class="skill">Network Troubleshooting</span>
-                <span class="skill">Candidate Support</span>
-                <span class="skill">System Preparation</span>
-
-            </div>
-
-        </section>
-
-
-        <!-- NETWORKING -->
-        <section>
-
-            <h3>ICT Networking Projects</h3>
-
-            <p>
-                My networking experience includes planning,
-                installation, configuration and maintenance
-                of computer networks.
-            </p>
-
-            <div class="skills">
-
-                <span class="skill">Structured Cabling</span>
-                <span class="skill">Cat6 Installation</span>
-                <span class="skill">Router Configuration</span>
-                <span class="skill">Switch Configuration</span>
-                <span class="skill">Wireless Networking</span>
-                <span class="skill">IP Addressing</span>
-                <span class="skill">CCTV Networking</span>
-                <span class="skill">Server Connectivity</span>
-                <span class="skill">Network Documentation</span>
-
-            </div>
-
-        </section>
-
-
-        <!-- TRAINING -->
-        <section id="training">
-
-            <h3>
-                Digital Skills Training &amp;
-                Community Impact
-            </h3>
-
-            <p>
-                I am passionate about using technology to empower
-                people who may otherwise have limited access to
-                digital opportunities.
-            </p>
-
-            <div class="grid">
-
-                <div class="card">
-
-                    <h4>900+ Women Trained</h4>
-
-                    <p>
-                        Trained over
-                        <strong>900 women</strong>
-                        in digital literacy over a six-week programme.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>50 Girls Trained</h4>
-
-                    <p>
-                        Delivered digital skills training to
-                        <strong>50 girls</strong>
-                        at secondary-school level.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <p style="margin-top:20px;">
-
-                <strong>
-                    Simple → Practical → Inclusive →
-                    Relevant → Empowering
-                </strong>
-
-            </p>
-
-        </section>
-
-
-        <!-- ACHIEVEMENTS -->
-        <section id="achievements">
-
-            <h3>Key Achievements</h3>
-
-            <div class="grid">
-
-                <div class="card">
-
-                    <h4>ICT Infrastructure Management</h4>
-
-                    <p>
-                        Managed and supported ICT infrastructure
-                        used by staff, students, candidates
-                        and community members.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>CBT Operations</h4>
-
-                    <p>
-                        Supported deployment and operation of
-                        CBT infrastructure for large numbers of
-                        users and examination candidates.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>Digital Literacy</h4>
-
-                    <p>
-                        Trained hundreds of women, girls and
-                        young people in practical digital skills.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>Network Deployment</h4>
-
-                    <p>
-                        Designed, installed, maintained and
-                        troubleshot computer networks for
-                        ICT laboratories and CBT environments.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>Technical Problem Solving</h4>
-
-                    <p>
-                        Provided hands-on solutions to hardware,
-                        software, networking, server, power and
-                        connectivity challenges.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>Community Technology</h4>
-
-                    <p>
-                        Used ICT as a tool for community development,
-                        education and economic empowerment.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- PROJECTS -->
-        <section id="projects">
-
-            <h3>Selected ICT Projects</h3>
-
-
-            <div class="card">
-
-                <h4>
-                    Project 1: CBT Centre Network Deployment
-                </h4>
-
-                <p>
-                    <strong>Role:</strong>
-                    ICT/Technical Lead
-                </p>
-
-                <ul>
-                    <li>Network planning</li>
-                    <li>Structured cabling</li>
-                    <li>Computer deployment</li>
-                    <li>Switch installation</li>
-                    <li>IP addressing</li>
-                    <li>Server configuration</li>
-                    <li>Client configuration</li>
-                    <li>Testing and troubleshooting</li>
-                </ul>
-
-            </div>
-
-
-            <br>
-
-
-            <div class="card">
-
-                <h4>
-                    Project 2: Digital Skills Training for Women
-                </h4>
-
-                <p>
-                    <strong>Role:</strong>
-                    ICT Trainer
-                </p>
-
-                <ul>
-                    <li>Curriculum preparation</li>
-                    <li>Practical computer training</li>
-                    <li>Internet training</li>
-                    <li>Digital literacy</li>
-                    <li>User support</li>
-                </ul>
-
-                <p>
-                    <strong>Outcome:</strong>
-                    Trained more than 900 women in practical
-                    digital skills.
-                </p>
-
-            </div>
-
-
-            <br>
-
-
-            <div class="card">
-
-                <h4>
-                    Project 3: Digital Skills Training for Girls
-                </h4>
-
-                <p>
-                    <strong>Target:</strong>
-                    50 secondary-school girls
-                </p>
-
-                <p>
-                    <strong>Focus:</strong>
-                    Computer appreciation, internet use,
-                    digital skills, online safety and practical
-                    computer applications.
-                </p>
-
-            </div>
-
-
-            <br>
-
-
-            <div class="card">
-
-                <h4>
-                    Project 4: ICT Infrastructure Support
-                </h4>
-
-                <p>
-                    <strong>Role:</strong>
-                    ICT Manager
-                </p>
-
-                <ul>
-                    <li>Hardware maintenance</li>
-                    <li>Network troubleshooting</li>
-                    <li>Server support</li>
-                    <li>User support</li>
-                    <li>ICT equipment management</li>
-                    <li>Connectivity troubleshooting</li>
-                </ul>
-
-            </div>
-
-        </section>
-
-
-        <!-- TECHNICAL SKILLS -->
-        <section>
-
-            <h3>Technical Skills</h3>
-
-            <h4>Hardware</h4>
-
-            <div class="skills">
-
-                <span class="skill">Desktop Computers</span>
-                <span class="skill">Laptops</span>
-                <span class="skill">Printers</span>
-                <span class="skill">UPS Systems</span>
-                <span class="skill">Network Equipment</span>
-                <span class="skill">CCTV Equipment</span>
-                <span class="skill">Servers</span>
-                <span class="skill">Storage Devices</span>
-
-            </div>
-
-
-            <h4>Networking</h4>
-
-            <div class="skills">
-
-                <span class="skill">TCP/IP</span>
-                <span class="skill">IPv4</span>
-                <span class="skill">LAN</span>
-                <span class="skill">WAN</span>
-                <span class="skill">DHCP</span>
-                <span class="skill">DNS Fundamentals</span>
-                <span class="skill">Routing &amp; Switching</span>
-                <span class="skill">Structured Cabling</span>
-                <span class="skill">Wireless Networking</span>
-
-            </div>
-
-
-            <h4>
-                Systems &amp; Emerging Technology
-            </h4>
-
-            <div class="skills">
-
-                <span class="skill">Windows</span>
-                <span class="skill">Server Environments</span>
-                <span class="skill">Moodle</span>
-                <span class="skill">CBT Systems</span>
-                <span class="skill">Microsoft Office</span>
-                <span class="skill">Cybersecurity Fundamentals</span>
-                <span class="skill">Cloud Computing</span>
-                <span class="skill">Data Analysis</span>
-                <span class="skill">Artificial Intelligence</span>
-                <span class="skill">IoT</span>
-                <span class="skill">Web Technologies</span>
-
-            </div>
-
-        </section>
-
-
-        <!-- EDUCATION -->
-        <section>
-
-            <h3>
-                Education &amp;
-                Professional Development
-            </h3>
-
-            <h4>Academic Background</h4>
-
-            <p>
-                <strong>
-                    Graduate — Mechanical Engineering
-                </strong>
-            </p>
-
-            <h4>
-                ICT &amp;
-                Professional Development
-            </h4>
-
+        </div>
+        <div class="card">
+            <h3>Networking</h3>
             <ul>
-                <li>Cisco Networking</li>
-                <li>IT Essentials</li>
-                <li>Data Analysis</li>
-                <li>Virtual Assistance</li>
-                <li>Cybersecurity</li>
-                <li>Digital Skills Training</li>
-                <li>Computer-Based Testing</li>
-                <li>ICT Infrastructure Management</li>
+                <li>LAN/WAN installation</li>
+                <li>Structured cabling</li>
+                <li>IP addressing</li>
+                <li>Router and switch configuration</li>
+                <li>Wireless networking</li>
+                <li>Network troubleshooting</li>
+                <li>CCTV networking</li>
             </ul>
+        </div>
+        <div class="card">
+            <h3>CBT Operations</h3>
+            <ul>
+                <li>CBT centre setup</li>
+                <li>CBT network configuration</li>
+                <li>Server/client configuration</li>
+                <li>Examination support</li>
+                <li>Hardware maintenance</li>
+                <li>Technical troubleshooting</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Digital Training</h3>
+            <ul>
+                <li>Digital literacy</li>
+                <li>Computer appreciation</li>
+                <li>Internet skills</li>
+                <li>Microsoft Office</li>
+                <li>Digital safety</li>
+                <li>Community technology training</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="experience">
+    <h2>Professional Experience</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h3>Fantsuam Foundation — ICT Manager / ICT Professional</h3>
+            <strong>12+ Years</strong>
+            <p>Managing and supporting organisational ICT infrastructure and technology-related activities.</p>
+            <ul>
+                <li>Manage ICT infrastructure and equipment.</li>
+                <li>Maintain computer systems and networks.</li>
+                <li>Provide technical support to staff.</li>
+                <li>Set up and maintain computer laboratories.</li>
+                <li>Support servers, connectivity and ICT systems.</li>
+                <li>Manage CBT infrastructure and technical operations.</li>
+                <li>Provide ICT training and support digital programmes.</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <h3>CBT ZittNet Academy — CBT Academy Manager</h3>
+            <strong>2022 – Present</strong>
+            <p>Managing CBT technical operations, infrastructure, systems and examination support.</p>
+        </div>
+        <div class="timeline-item">
+            <h3>Fantsuam Foundation — CBT Technical Manager</h3>
+            <strong>2014 – 2017</strong>
+            <p>Provided technical management and operational support for CBT activities.</p>
+        </div>
+        <div class="timeline-item">
+            <h3>Rumbu Industry Limited, Kano — Technical/Operator Assistant</h3>
+            <strong>2020 – 2021</strong>
+        </div>
+        <div class="timeline-item">
+            <h3>Society for Family Health — Community Facilitator</h3>
+            <strong>2015 – 2016</strong>
+        </div>
+    </div>
+</section>
+
+<section id="cbt">
+    <h2>Computer-Based Testing Experience</h2>
+    <p>
+        One of my major areas of professional experience is the management and technical operation of Computer-Based Testing centres.
+    </p>
+    <div class="grid">
+        <div class="card"><h3>Centre Setup</h3><p>Planning and deploying CBT computer environments and supporting infrastructure.</p></div>
+        <div class="card"><h3>Network Configuration</h3><p>Connecting and configuring large numbers of computers for reliable examination operations.</p></div>
+        <div class="card"><h3>Server Support</h3><p>Supporting servers, clients and examination software environments.</p></div>
+        <div class="card"><h3>Examination Support</h3><p>Providing technical support before and during examination activities.</p></div>
+    </div>
+    <div class="achievement">
+        <strong>CBT Impact:</strong> Contributed to the successful registration and examination support of thousands of candidates through CBT-related services and infrastructure.
+    </div>
+</section>
+
+<section>
+    <h2>ICT Networking Experience</h2>
+    <p>My networking experience includes the planning, installation, configuration and maintenance of computer networks.</p>
+    <div class="skills">
+        <span class="skill">Structured Cabling</span>
+        <span class="skill">Cat6 Installation</span>
+        <span class="skill">Router Configuration</span>
+        <span class="skill">Switch Configuration</span>
+        <span class="skill">Wireless Access Points</span>
+        <span class="skill">IPv4 Addressing</span>
+        <span class="skill">Network Troubleshooting</span>
+        <span class="skill">CCTV Integration</span>
+        <span class="skill">Server Connectivity</span>
+        <span class="skill">Network Documentation</span>
+    </div>
+</section>
+
+<section id="impact">
+    <h2>Digital Skills Training &amp; Community Impact</h2>
+    <p>
+        I am passionate about using technology to empower people who may otherwise have limited access to digital opportunities.
+    </p>
+    <div class="grid">
+        <div class="achievement">
+            <h3>900+ Women Trained</h3>
+            <p>Trained over 900 women in digital literacy through a six-week programme.</p>
+        </div>
+        <div class="achievement">
+            <h3>50 Girls Trained</h3>
+            <p>Delivered digital skills training to 50 girls at secondary-school level.</p>
+        </div>
+        <div class="achievement">
+            <h3>Community Empowerment</h3>
+            <p>Provided practical digital skills and technology support to community members and young people.</p>
+        </div>
+    </div>
+    <h3>Training Philosophy</h3>
+    <p><strong>Simple → Practical → Inclusive → Relevant → Empowering</strong></p>
+</section>
+
+<section id="projects">
+    <h2>Selected ICT Projects</h2>
+    <div class="card">
+        <h3>Project 1: CBT Centre Network Deployment</h3>
+        <p><strong>Role:</strong> ICT/Technical Lead</p>
+        <p>Network planning, structured cabling, switch installation, IP addressing, server/client configuration, testing and troubleshooting.</p>
+    </div>
+    <br>
+    <div class="card">
+        <h3>Project 2: Digital Skills Training for Women</h3>
+        <p><strong>Role:</strong> ICT Trainer</p>
+        <p>Curriculum preparation, practical computer training, internet training, digital literacy and user support for more than 900 women.</p>
+    </div>
+    <br>
+    <div class="card">
+        <h3>Project 3: Digital Skills Training for Girls</h3>
+        <p><strong>Role:</strong> ICT Trainer</p>
+        <p>Delivered computer appreciation, internet skills, digital safety and practical computer training to 50 girls.</p>
+    </div>
+    <br>
+    <div class="card">
+        <h3>Project 4: ICT Infrastructure Support</h3>
+        <p><strong>Role:</strong> ICT Manager</p>
+        <p>Hardware maintenance, network troubleshooting, server support, user support, ICT equipment management and connectivity troubleshooting.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Key Achievements</h2>
+    <div class="grid">
+        <div class="achievement"><strong>ICT Infrastructure:</strong> Managed and supported ICT infrastructure used by staff, students, candidates and community members.</div>
+        <div class="achievement"><strong>CBT Operations:</strong> Supported large-scale CBT registration and examination activities.</div>
+        <div class="achievement"><strong>Digital Literacy:</strong> Trained hundreds of women, girls and young people in practical digital skills.</div>
+        <div class="achievement"><strong>Network Deployment:</strong> Designed, installed, maintained and troubleshot computer networks.</div>
+        <div class="achievement"><strong>Technical Problem Solving:</strong> Resolved hardware, software, networking, server, power and connectivity challenges.</div>
+        <div class="achievement"><strong>Community Technology:</strong> Used ICT for education, community development and economic empowerment.</div>
+    </div>
+</section>
+
+<section id="skills">
+    <h2>Technical Skills</h2>
+    <h3>Hardware</h3>
+    <div class="skills">
+        <span class="skill">Desktop Computers</span><span class="skill">Laptops</span><span class="skill">Printers</span>
+        <span class="skill">UPS Systems</span><span class="skill">Network Equipment</span><span class="skill">CCTV</span>
+        <span class="skill">Servers</span><span class="skill">Storage Devices</span>
+    </div>
+    <h3>Networking &amp; Systems</h3>
+    <div class="skills">
+        <span class="skill">TCP/IP</span><span class="skill">IPv4</span><span class="skill">LAN</span>
+        <span class="skill">WAN</span><span class="skill">DHCP</span><span class="skill">DNS Fundamentals</span>
+        <span class="skill">Routing &amp; Switching</span><span class="skill">Structured Cabling</span>
+        <span class="skill">Wireless Networking</span><span class="skill">Windows</span>
+        <span class="skill">Moodle</span><span class="skill">CBT Systems</span><span class="skill">Microsoft Office</span>
+    </div>
+    <h3>Emerging Technology</h3>
+    <div class="skills">
+        <span class="skill">Cybersecurity Fundamentals</span>
+        <span class="skill">Cloud Computing Fundamentals</span>
+        <span class="skill">Data Analysis</span>
+        <span class="skill">Artificial Intelligence Fundamentals</span>
+        <span class="skill">Internet of Things</span>
+        <span class="skill">Web Technologies</span>
+    </div>
+</section>
+
+<section>
+    <h2>Education &amp; Professional Development</h2>
+    <h3>Academic Background</h3>
+    <p><strong>Graduate — Mechanical Engineering</strong></p>
+    <h3>ICT &amp; Professional Development</h3>
+    <ul>
+        <li>Cisco Networking</li>
+        <li>IT Essentials</li>
+        <li>Data Analysis</li>
+        <li>Virtual Assistance</li>
+        <li>Cybersecurity</li>
+        <li>Digital Skills Training</li>
+        <li>Computer-Based Testing</li>
+        <li>ICT Infrastructure Management</li>
+    </ul>
+</section>
+
+<section id="services">
+    <h2>Services I Can Provide</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>ICT Consultancy</h3>
+            <ul><li>ICT infrastructure assessment</li><li>Technology planning</li><li>ICT project implementation</li></ul>
+        </div>
+        <div class="card">
+            <h3>Networking</h3>
+            <ul><li>Network design</li><li>Installation</li><li>Configuration</li><li>Troubleshooting</li><li>Documentation</li></ul>
+        </div>
+        <div class="card">
+            <h3>CBT Consultancy</h3>
+            <ul><li>CBT centre planning</li><li>Network deployment</li><li>Hardware configuration</li><li>Technical operations</li></ul>
+        </div>
+        <div class="card">
+            <h3>Digital Training</h3>
+            <ul><li>Computer literacy</li><li>Digital skills</li><li>Internet literacy</li><li>Organisational training</li></ul>
+        </div>
+        <div class="card">
+            <h3>Technical Support</h3>
+            <ul><li>Computer troubleshooting</li><li>Hardware maintenance</li><li>Software installation</li><li>Network support</li></ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>My Professional Value</h2>
+    <p class="lead">
+        I bring together <strong>technical knowledge, practical field experience and community-focused technology implementation</strong>.
+    </p>
+    <p>My strength is not only in understanding technology, but in making technology work in real-world environments.</p>
+    <div class="skills">
+        <span class="skill">Plan It</span>
+        <span class="skill">Install It</span>
+        <span class="skill">Configure It</span>
+        <span class="skill">Troubleshoot It</span>
+        <span class="skill">Train People</span>
+        <span class="skill">Manage It</span>
+    </div>
+</section>
+
+<section>
+    <h2>Professional Mission</h2>
+    <blockquote>
+        “To use technology to solve real-life problems, improve access to digital opportunities and empower individuals, organisations and communities.”
+    </blockquote>
+</section>
+
+<section>
+    <h2>Career Vision</h2>
+    <p>
+        My long-term goal is to contribute to organisations and technology projects where ICT can be used to improve productivity,
+        education, employment, business development and community impact.
+    </p>
+    <p>I am particularly interested in opportunities involving:</p>
+    <div class="skills">
+        <span class="skill">ICT Management</span>
+        <span class="skill">IT Support</span>
+        <span class="skill">Network Administration</span>
+        <span class="skill">Systems Administration</span>
+        <span class="skill">Technology Operations</span>
+        <span class="skill">CBT Management</span>
+        <span class="skill">Digital Transformation</span>
+        <span class="skill">Digital Skills Training</span>
+        <span class="skill">Technology for Development</span>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+        <div><strong>Name</strong><br>Ibrahim Doni Samaila</div>
+        <div><strong>Profession</strong><br>ICT Manager / ICT Trainer</div>
+        <div><strong>Email</strong><br>[Your Email Address]</div>
+        <div><strong>Phone</strong><br>[Your Phone Number]</div>
+        <div><strong>LinkedIn</strong><br>[Your LinkedIn Profile]</div>
+        <div><strong>Location</strong><br>Nigeria</div>
+    </div>
+</section>
+</main>
+
+<footer>
+    <p><strong>IBRAHIM DONI SAMAILA</strong></p>
+    <p>ICT Manager | Network &amp; Systems Technician | ICT Trainer</p>
+    <p>“I believe that ICT is most profitable when it is used to solve real-life problems.”</p>
+</footer>
 
-        </section>
-
-
-        <!-- SERVICES -->
-        <section>
-
-            <h3>Services I Can Provide</h3>
-
-            <div class="grid">
-
-                <div class="card">
-
-                    <h4>ICT Consultancy</h4>
-
-                    <p>
-                        ICT infrastructure assessment,
-                        technology planning and ICT project
-                        implementation.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>Networking</h4>
-
-                    <p>
-                        Network design, installation,
-                        configuration, troubleshooting
-                        and documentation.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>CBT Consultancy</h4>
-
-                    <p>
-                        CBT centre planning, network deployment,
-                        hardware configuration and technical
-                        operations.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>Digital Training</h4>
-
-                    <p>
-                        Computer literacy, digital skills,
-                        internet literacy and ICT training
-                        for organisations and communities.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h4>Technical Support</h4>
-
-                    <p>
-                        Computer troubleshooting, hardware
-                        maintenance, software installation
-                        and network support.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- VALUE -->
-        <section>
-
-            <h3>My Professional Value</h3>
-
-            <p>
-                I bring together
-                <strong>
-                    technical knowledge, practical field
-                    experience and community-focused
-                    technology implementation.
-                </strong>
-            </p>
-
-            <p>
-                My strength is not only in understanding
-                technology, but in making technology work
-                in real-world environments.
-            </p>
-
-            <div class="skills">
-
-                <span class="skill">Plan It</span>
-                <span class="skill">Install It</span>
-                <span class="skill">Configure It</span>
-                <span class="skill">Troubleshoot It</span>
-                <span class="skill">Train People</span>
-                <span class="skill">Manage It</span>
-
-            </div>
-
-        </section>
-
-
-        <!-- MISSION -->
-        <section>
-
-            <h3>Professional Mission</h3>
-
-            <div class="quote">
-
-                “To use technology to solve real-life problems,
-                improve access to digital opportunities and
-                empower individuals, organisations and communities.”
-
-            </div>
-
-        </section>
-
-
-        <!-- VISION -->
-        <section>
-
-            <h3>Career Vision</h3>
-
-            <p>
-                My long-term goal is to contribute to organisations
-                and technology projects where ICT can be used to
-                improve productivity, education, employment,
-                business development and community impact.
-            </p>
-
-            <div class="skills">
-
-                <span class="skill">ICT Management</span>
-                <span class="skill">IT Support</span>
-                <span class="skill">Network Administration</span>
-                <span class="skill">Systems Administration</span>
-                <span class="skill">Technology Operations</span>
-                <span class="skill">CBT Management</span>
-                <span class="skill">Digital Transformation</span>
-                <span class="skill">Digital Skills Training</span>
-                <span class="skill">Technology for Development</span>
-
-            </div>
-
-        </section>
-
-
-        <!-- CONTACT -->
-        <section id="contact">
-
-            <h3>Contact</h3>
-
-            <div class="contact">
-
-                <p>
-                    <strong>
-                        Ibrahim Doni Samaila
-                    </strong>
-                </p>
-
-                <p>
-                    ICT Manager |
-                    Network &amp; Systems Technician |
-                    ICT Trainer
-                </p>
-
-                <p>
-                    📧 Email:
-                    <em>[Your Email Address]</em>
-                </p>
-
-                <p>
-                    📱 Phone:
-                    <em>[Your Phone Number]</em>
-                </p>
-
-                <p>
-                    🔗 LinkedIn:
-                    <em>[Your LinkedIn Profile]</em>
-                </p>
-
-                <p>
-                    📍 Location: Nigeria
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- FINAL STATEMENT -->
-        <section>
-
-            <h3>Professional Statement</h3>
-
-            <div class="quote">
-
-                “I believe that ICT is most profitable when
-                it is used to solve real-life problems.”
-
-                <br><br>
-
-                <strong>
-                    — Ibrahim Doni Samaila
-                </strong>
-
-        
 </body>
 </html>
